@@ -79,6 +79,6 @@ priemnik/                ← приёмник заявок (Google Таблиц�
 
 ## Превью для согласования (Vercel)
 
-Сейчас сайт закрыт от индексации: `site/robots.txt` запрещает всё, а `site/vercel.json` отдаёт заголовок `X-Robots-Tag: noindex`.
-Перед запуском на боевом домене: заменить `site/robots.txt` содержимым `robots.production.txt` и удалить `site/vercel.json` (или блок `X-Robots-Tag` в нём).
+Сейчас сайт закрыт от индексации: `site/robots.txt` запрещает всё, а `vercel.json` в корне проекта отдаёт заголовок `X-Robots-Tag: noindex`.
+Перед запуском на боевом домене: заменить `site/robots.txt` содержимым `robots.production.txt` и удалить блок `headers` с `X-Robots-Tag` из корневого `vercel.json` (строки `outputDirectory: "site"` не трогать – они говорят Vercel, что сайт лежит в папке site).
 Vercel: Root Directory – `site`, Framework Preset – `Other`, сборка не нужна.
