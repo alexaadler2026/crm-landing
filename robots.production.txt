@@ -1,0 +1,33 @@
+# Atava CRM – robots.txt
+# Поисковые и ИИ-роботы разрешены явно. Имена взяты из документации компаний (ноябрь 2026):
+# OpenAI: developers.openai.com/api/docs/bots · Anthropic: support.claude.com (статья 8896518)
+# Perplexity: docs.perplexity.ai/guides/bots · Google: developers.google.com/search/docs/crawling-indexing
+# Яндекс: yandex.ru/support/webmaster/ru/robot-workings/check-yandex-robots
+
+# OpenAI
+User-agent: OAI-SearchBot
+User-agent: GPTBot
+User-agent: ChatGPT-User
+# Anthropic
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+# Perplexity
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+# Google
+User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Google-Extended
+# Яндекс
+User-agent: YandexBot
+User-agent: YandexAdditional
+User-agent: YandexAdditionalBot
+Allow: /
+Disallow: /spasibo/
+
+User-agent: *
+Allow: /
+Disallow: /spasibo/
+
+Sitemap: https://[ДОМЕН]/sitemap.xml

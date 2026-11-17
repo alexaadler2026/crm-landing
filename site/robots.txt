@@ -1,0 +1,6 @@
+# Atava CRM – ПРЕВЬЮ ДЛЯ СОГЛАСОВАНИЯ, индексация запрещена.
+# Перед запуском на боевом домене заменить этим файлом: robots.production.txt (корень проекта)
+# и удалить заголовок X-Robots-Tag из site/vercel.json.
+
+User-agent: *
+Disallow: /

@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Atava CRM — тарифы</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geologica:wght@500;600;700&family=Manrope:wght@500;600;700;800&display=swap">
+<style>
+body{margin:0;font-family:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;color:#202A36;background:#FFFFFF;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:'Geologica','Manrope',system-ui,sans-serif;font-weight:600;letter-spacing:-0.02em;margin:0;text-wrap:balance}
+p{margin:0;text-wrap:pretty}
+a{color:#1B695B}a:hover{color:#0F3A33}
+summary{list-style:none;cursor:pointer}summary::-webkit-details-marker{display:none}
+input:focus,a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #E79532;outline-offset:2px}
+</style>
+</helmet>
+<div style="background: #FFFFFF; overflow: hidden">
+
+<div style="background: #202A36; color: #FFFFFF; padding: 11px 24px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px 14px; font-size: 14px; font-weight: 700; text-align: center">
+<span><span style="color: #F2B45E">До 1 декабря:</span> −30% при оплате за год и 5 часов кастомизации в подарок</span>
+</div>
+
+<nav style="border-bottom: 1px solid #E1E6E4; background: #FFFFFF">
+<div style="max-width: 1200px; margin: 0 auto; padding: 14px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 32px">
+<a href="Main.dc.html" aria-label="Atava CRM — главная" style="display: flex"><img src="/_blob/41af88fb04fd94cf893b845a75752eb4" alt="Atava CRM" style="height: 42px; width: auto; display: block"></a>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 28px; margin-left: auto; font-size: 15px; font-weight: 700">
+<a href="Main.dc.html" style="color: #202A36; text-decoration: none; padding: 12px 0">Возможности</a>
+<a href="Cases.dc.html" style="color: #202A36; text-decoration: none; padding: 12px 0">Кейсы</a>
+<a href="Pricing.dc.html" style="color: #1B695B; text-decoration: none; padding: 12px 0; border-bottom: 2px solid #1B695B">Тарифы</a>
+</div>
+<a href="#demo" style="background: #E79532; color: #202A36; text-decoration: none; font-weight: 800; font-size: 15px; padding: 13px 22px; border-radius: 10px">Записаться на демо</a>
+</div>
+</nav>
+
+<!-- заголовок и переключатель -->
+<header style="background: #F4F6F5; padding: 72px 24px 0">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center">
+<div style="font-size: 13px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1B695B">Тарифы</div>
+<h1 style="font-size: clamp(34px, 4.4vw, 56px); line-height: 1.08; max-width: 16em">Подписка по размеру бизнеса. Цена известна до запуска</h1>
+<p style="font-size: 19px; line-height: 1.55; color: #56606E; max-width: 36em">Две понятные части: ежемесячная подписка и разовое внедрение. Смету согласуем заранее — в процессе она не меняется.</p>
+<div role="group" aria-label="Период оплаты" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; background: #FFFFFF; border: 2px solid #E1E6E4; border-radius: 16px; padding: 6px; margin-top: 14px">
+<button type="button" onClick="{{setMonth}}" aria-pressed="{{isMonth}}" style="font: inherit; font-weight: 800; font-size: 15.5px; padding: 13px 22px; border: none; border-radius: 11px; cursor: pointer; background: {{monthBg}}; color: {{monthFg}}">Помесячно</button>
+<button type="button" onClick="{{setYear}}" aria-pressed="{{isYear}}" style="font: inherit; font-weight: 800; font-size: 15.5px; padding: 13px 22px; border: none; border-radius: 11px; cursor: pointer; background: {{yearBg}}; color: {{yearFg}}">За год −10%</button>
+<button type="button" onClick="{{setPromo}}" aria-pressed="{{isPromo}}" style="font: inherit; font-weight: 800; font-size: 15.5px; padding: 13px 22px; border: none; border-radius: 11px; cursor: pointer; background: {{promoBg}}; color: {{promoFg}}">До 1 декабря −30%</button>
+</div>
+</div>
+</header>
+
+<!-- планы -->
+<section style="background: #F4F6F5; padding: 40px 24px 88px; border-bottom: 1px solid #E1E6E4">
+<div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(330px, 100%), 1fr)); gap: 24px; align-items: stretch">
+
+<div style="background: #FFFFFF; border: 1px solid #E1E6E4; border-radius: 20px; padding: 36px 32px; display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; flex-direction: column; gap: 6px"><h2 style="font-size: 26px">Рост</h2><div style="font-size: 15px; font-weight: 600; color: #56606E">до 10 пользователей · 2 офиса</div></div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 10px"><sc-if value="{{hasOld}}" hint-placeholder-val="{{true}}"><span style="font-size: 18px; font-weight: 700; color: #56606E; text-decoration: line-through; text-decoration-color: #B5432D">13 000</span></sc-if><span style="font-family: 'Geologica', sans-serif; font-weight: 600; font-size: 44px; letter-spacing: -0.02em; line-height: 1">{{p1}}</span><span style="font-size: 16px; font-weight: 700; color: #56606E">сом/мес</span></div>
+<div style="font-size: 14.5px; font-weight: 700; color: #14564A">{{n1}}</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px; font-size: 15.5px; line-height: 1.45; color: #202A36">
+<div style="display: flex; gap: 10px"><span style="color: #1B695B; font-weight: 800" aria-hidden="true">✓</span><span>Все мессенджеры в одном окне</span></div>
+<div style="display: flex; gap: 10px"><span style="color: #1B695B; font-weight: 800" aria-hidden="true">✓</span><span>Запросы и сделки</span></div>
+<div style="display: flex; gap: 10px"><span style="color: #1B695B; font-weight: 800" aria-hidden="true">✓</span><span>Договоры онлайн</span></div>
+<div style="display: flex; gap: 10px"><span style="color: #1B695B; font-weight: 800" aria-hidden="true">✓</span><span>Базовая аналитика</span></div>
+</div>
+<a href="#demo" style="margin-top: auto; text-align: center; background: #FFFFFF; color: #202A36; border: 2px solid #202A36; text-decoration: none; font-weight: 800; font-size: 16px; padding: 15px 20px; border-radius: 12px">Выбрать «Рост»</a>
+</div>
+
+<div style="background: #0F3A33; color: #FFFFFF; border-radius: 20px; padding: 36px 32px; display: flex; flex-direction: column; gap: 20px; box-shadow: 0 30px 60px -28px rgba(15,58,51,0.7)">
+<div style="display: flex; flex-direction: column; gap: 6px"><div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px"><h2 style="font-size: 26px; color: #FFFFFF">Масштаб</h2><span style="font-size: 12px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; background: #E79532; color: #202A36; padding: 5px 10px; border-radius: 6px">Выбирают чаще</span></div><div style="font-size: 15px; font-weight: 600; color: #C9DDD7">до 30 пользователей · 5 офисов</div></div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 10px"><sc-if value="{{hasOld}}" hint-placeholder-val="{{true}}"><span style="font-size: 18px; font-weight: 700; color: #C9DDD7; text-decoration: line-through; text-decoration-color: #F2B45E">20 000</span></sc-if><span style="font-family: 'Geologica', sans-serif; font-weight: 600; font-size: 44px; letter-spacing: -0.02em; line-height: 1; color: #F2B45E">{{p2}}</span><span style="font-size: 16px; font-weight: 700; color: #C9DDD7">сом/мес</span></div>
+<div style="font-size: 14.5px; font-weight: 700; color: #F2B45E">{{n2}}</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px; font-size: 15.5px; line-height: 1.45">
+<div style="display: flex; gap: 10px"><span style="color: #F2B45E; font-weight: 800" aria-hidden="true">✓</span><span style="font-weight: 800">Всё из тарифа «Рост»</span></div>
+<div style="display: flex; gap: 10px"><span style="color: #F2B45E; font-weight: 800" aria-hidden="true">✓</span><span>Интеграция с 1С или ERP</span></div>
+<div style="display: flex; gap: 10px"><span style="color: #F2B45E; font-weight: 800" aria-hidden="true">✓</span><span>Рассылки WhatsApp</span></div>
+<div style="display: flex; gap: 10px"><span style="color: #F2B45E; font-weight: 800" aria-hidden="true">✓</span><span>Чат-бот и дополнительные отчёты</span></div>
+</div>
+<a href="#demo" style="margin-top: auto; text-align: center; background: #E79532; color: #202A36; text-decoration: none; font-weight: 800; font-size: 16px; padding: 17px 20px; border-radius: 12px">Выбрать «Масштаб»</a>
+</div>
+
+<div style="background: #FFFFFF; border: 1px solid #E1E6E4; border-radius: 20px; padding: 36px 32px; display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; flex-direction: column; gap: 6px"><h2 style="font-size: 26px">Корпоратив</h2><div style="font-size: 15px; font-weight: 600; color: #56606E">от 30 пользователей · офисы без ограничений</div></div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 10px"><sc-if value="{{hasOld}}" hint-placeholder-val="{{true}}"><span style="font-size: 18px; font-weight: 700; color: #56606E; text-decoration: line-through; text-decoration-color: #B5432D">35 000</span></sc-if><span style="font-family: 'Geologica', sans-serif; font-weight: 600; font-size: 44px; letter-spacing: -0.02em; line-height: 1">{{p3}}</span><span style="font-size: 16px; font-weight: 700; color: #56606E">сом/мес</span></div>
+<div style="font-size: 14.5px; font-weight: 700; color: #14564A">{{n3}}</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px; font-size: 15.5px; line-height: 1.45; color: #202A36">
+<div style="display: flex; gap: 10px"><span style="color: #1B695B; font-weight: 800" aria-hidden="true">✓</span><span style="font-weight: 800">Всё из тарифа «Масштаб»</span></div>
+<div style="display: flex; gap: 10px"><span style="color: #1B695B; font-weight: 800" aria-hidden="true">✓</span><span>Модуль «Касса»</span></div>
+<div style="display: flex; gap: 10px"><span style="color: #1B695B; font-weight: 800" aria-hidden="true">✓</span><span>Кастомизация процессов</span></div>
+<div style="display: flex; gap: 10px"><span style="color: #1B695B; font-weight: 800" aria-hidden="true">✓</span><span>Персональный менеджер и SLA</span></div>
+</div>
+<a href="#demo" style="margin-top: auto; text-align: center; background: #FFFFFF; color: #202A36; border: 2px solid #202A36; text-decoration: none; font-weight: 800; font-size: 16px; padding: 15px 20px; border-radius: 12px">Обсудить проект</a>
+</div>
+</div>
+<p style="max-width: 1200px; margin: 28px auto 0; text-align: center; font-size: 15.5px; font-weight: 600; color: #56606E">Обновления и доработки по пожеланиям клиентов включены в любой тариф.</p>
+</section>
+
+<!-- внедрение -->
+<section style="padding: 88px 24px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 820px">
+<div style="font-size: 13px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #1B695B">Внедрение · единоразово</div>
+<h2 style="font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1">Запускаем сами — вы не остаётесь с «коробкой» один на один</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 24px">
+<div style="border: 1px solid #E1E6E4; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 12px">
+<div style="font-family: 'Geologica', sans-serif; font-weight: 600; font-size: 34px; letter-spacing: -0.02em; color: #14564A">от 25 000 сом</div>
+<h3 style="font-size: 21px">Настройка под бизнес-процессы</h3>
+<p style="font-size: 16px; line-height: 1.55; color: #56606E">Ваши статусы, поля, шаблоны договоров, роли, чат-боты и отчёты. Обучаем команду. Стоимость согласовываем до начала работ.</p>
+</div>
+<div style="border: 1px solid #E1E6E4; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 12px">
+<div style="font-family: 'Geologica', sans-serif; font-weight: 600; font-size: 34px; letter-spacing: -0.02em; color: #14564A">от 80 000 сом</div>
+<h3 style="font-size: 21px">Перенос данных и интеграции</h3>
+<p style="font-size: 16px; line-height: 1.55; color: #56606E">Excel, 1С, ERP, базы данных, Bitrix24 и amoCRM — с проверкой дублей. Точная смета после предварительного аудита ваших данных; в процессе не меняется.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- сравнение тарифов -->
+<section style="padding: 0 24px 88px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px">
+<h2 style="font-size: clamp(28px, 3.2vw, 40px); line-height: 1.1">Что входит в каждый тариф</h2>
+<div style="overflow-x: auto; border: 1px solid #E1E6E4; border-radius: 18px">
+<table style="width: 100%; min-width: 720px; border-collapse: collapse; font-size: 15.5px">
+<thead>
+<tr style="background: #F4F6F5; text-align: left">
+<th scope="col" style="padding: 18px 24px; font-weight: 800">Возможность</th>
+<th scope="col" style="padding: 18px 16px; font-weight: 800; text-align: center">Рост</th>
+<th scope="col" style="padding: 18px 16px; font-weight: 800; text-align: center; color: #14564A">Масштаб</th>
+<th scope="col" style="padding: 18px 16px; font-weight: 800; text-align: center">Корпоратив</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-top: 1px solid #E1E6E4"><th scope="row" style="padding: 15px 24px; font-weight: 600; text-align: left">Пользователи</th><td style="padding: 15px 16px; text-align: center">до 10</td><td style="padding: 15px 16px; text-align: center; background: #F1F8F5; font-weight: 700">до 30</td><td style="padding: 15px 16px; text-align: center">от 30</td></tr>
+<tr style="border-top: 1px solid #E1E6E4"><th scope="row" style="padding: 15px 24px; font-weight: 600; text-align: left">Офисы и филиалы</th><td style="padding: 15px 16px; text-align: center">2</td><td style="padding: 15px 16px; text-align: center; background: #F1F8F5; font-weight: 700">5</td><td style="padding: 15px 16px; text-align: center">без ограничений</td></tr>
+<tr style="border-top: 1px solid #E1E6E4"><th scope="row" style="padding: 15px 24px; font-weight: 600; text-align: left">Все мессенджеры в одном окне</th><td style="padding: 15px 16px; text-align: center; color: #1B695B; font-weight: 800">Да</td><td style="padding: 15px 16px; text-align: center; background: #F1F8F5; color: #1B695B; font-weight: 800">Да</td><td style="padding: 15px 16px; text-align: center; color: #1B695B; font-weight: 800">Да</td></tr>
+<tr style="border-top: 1px solid #E1E6E4"><th scope="row" style="padding: 15px 24px; font-weight: 600; text-align: left">Запросы и сделки</th><td style="padding: 15px 16px; text-align: center; color: #1B695B; font-weight: 800">Да</td><td style="padding: 15px 16px; text-align: center; background: #F1F8F5; color: #1B695B; font-weight: 800">Да</td><td style="padding: 15px 16px; text-align: center; color: #1B695B; font-weight: 800">Да</td></tr>
+<tr style="border-top: 1px solid #E1E6E4"><th scope="row" style="padding: 15px 24px; font-weight: 600; text-align: left">Договоры онлайн</th><td style="padding: 15px 16px; text-align: center; color: #1B695B; font-weight: 800">Да</td><td style="padding: 15px 16px; text-align: center; background: #F1F8F5; color: #1B695B; font-weight: 800">Да</td><td style="padding: 15px 16px; text-align: center; color: #1B695B; font-weight: 800">Да</td></tr>
+<tr style="border-top: 1px solid #E1E6E4"><th scope="row" style="padding: 15px 24px; font-weight: 600; text-align: left">Базовая аналитика</th><td style="padding: 15px 16px; text-align: center; color: #1B695B; font-weight: 800">Да</td><td style="padding: 15px 16px; text-align: center; background: #F1F8F5; color: #1B695B; font-weight: 800">Да</td><td style="padding: 15px 16px; text-align: center; color: #1B695B; font-weight: 800">Да</td></tr>
+<tr style="border-top: 1px solid #E1E6E4"><th scope="row" style="padding: 15px 24px; font-weight: 600; text-align: left">Интеграция с 1С или ERP</th><td style="padding: 15px 16px; text-align: center; color: #6B7480">—</td><td style="padding: 15px 16px; text-align: center; background: #F1F8F5; color: #1B695B; font-weight: 800">Да</td><td style="padding: 15px 16px; text-align: center; color: #1B695B; font-weight: 800">Да</td></tr>
+<tr style="border-top: 1px solid #E1E6E4"><th scope="row" style="padding: 15px 24px; font-weight: 600; text-align: left">Рассылки WhatsApp</th><td style="padding: 15px 16px; text-align: center; color: #6B7480">—</td><td style="padding: 15px 16px; text-align: center; background: #F1F8F5; color: #1B695B; font-weight: 800">Да</td><td style="padding: 15px 16px; text-align: center; color: #1B695B; font-weight: 800">Да</td></tr>
+<tr style="border-top: 1px solid #E1E6E4"><th scope="row" style="padding: 15px 24px; font-weight: 600; text-align: left">Чат-бот и дополнительные отчёты</th><td style="padding: 15px 16px; text-align: center; color: #6B7480">—</td><td style="padding: 15px 16px; text-align: center; background: #F1F8F5; color: #1B695B; font-weight: 800">Да</td><td style="padding: 15px 16px; text-align: center; color: #1B695B; font-weight: 800">Да</td></tr>
+<tr style="border-top: 1px solid #E1E6E4"><th scope="row" style="padding: 15px 24px; font-weight: 600; text-align: left">Модуль «Касса»</th><td style="padding: 15px 16px; text-align: center; color: #6B7480">—</td><td style="padding: 15px 16px; text-align: center; background: #F1F8F5; color: #6B7480">—</td><td style="padding: 15px 16px; text-align: center; color: #1B695B; font-weight: 800">Да</td></tr>
+<tr style="border-top: 1px solid #E1E6E4"><th scope="row" style="padding: 15px 24px; font-weight: 600; text-align: left">Кастомизация процессов</th><td style="padding: 15px 16px; text-align: center; color: #6B7480">—</td><td style="padding: 15px 16px; text-align: center; background: #F1F8F5; color: #6B7480">—</td><td style="padding: 15px 16px; text-align: center; color: #1B695B; font-weight: 800">Да</td></tr>
+<tr style="border-top: 1px solid #E1E6E4"><th scope="row" style="padding: 15px 24px; font-weight: 600; text-align: left">Персональный менеджер и SLA</th><td style="padding: 15px 16px; text-align: center; color: #6B7480">—</td><td style="padding: 15px 16px; text-align: center; background: #F1F8F5; color: #6B7480">—</td><td style="padding: 15px 16px; text-align: center; color: #1B695B; font-weight: 800">Да</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+<!-- почему не коробка -->
+<section style="padding: 88px 24px; background: #202A36; color: #FFFFFF">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 860px">
+<div style="font-size: 13px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #F2B45E">Честное сравнение</div>
+<h2 style="font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1; color: #FFFFFF">Почему у Bitrix24 и amoCRM тариф выглядит дешевле</h2>
+<p style="font-size: 18px; line-height: 1.55; color: #C3CAD4">Подключение мессенджеров, кастомизация, отчёты и дополнительные модули там часто оплачиваются отдельно — интегратору. В Atava состав тарифа и смета внедрения известны заранее.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 24px">
+<div style="border: 1px solid #3A4656; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 16px">
+<h3 style="font-size: 14px; font-family: 'Manrope', sans-serif; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #B4BCC6">Коробочная CRM</h3>
+<div style="display: flex; flex-direction: column; gap: 14px; font-size: 16.5px; line-height: 1.45; color: #C3CAD4">
+<div style="display: flex; gap: 12px"><span aria-hidden="true">—</span><span>Данные переносите сами или ищете подрядчика</span></div>
+<div style="display: flex; gap: 12px"><span aria-hidden="true">—</span><span>Универсальные «лиды» и «воронки» вместо языка отрасли</span></div>
+<div style="display: flex; gap: 12px"><span aria-hidden="true">—</span><span>Доработки — отдельный проект с отдельным бюджетом</span></div>
+<div style="display: flex; gap: 12px"><span aria-hidden="true">—</span><span>За результат внедрения отвечаете вы</span></div>
+</div>
+</div>
+<div style="background: #0F3A33; border: 1px solid #1B695B; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 16px">
+<h3 style="font-size: 14px; font-family: 'Manrope', sans-serif; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #F2B45E">Atava</h3>
+<div style="display: flex; flex-direction: column; gap: 14px; font-size: 16.5px; line-height: 1.45; font-weight: 600">
+<div style="display: flex; gap: 12px"><span style="color: #F2B45E" aria-hidden="true">✓</span><span>Переносим клиентов и историю сами, с проверкой дублей</span></div>
+<div style="display: flex; gap: 12px"><span style="color: #F2B45E" aria-hidden="true">✓</span><span>Отраслевые модули: туры, заказ-наряды, записи, группы</span></div>
+<div style="display: flex; gap: 12px"><span style="color: #F2B45E" aria-hidden="true">✓</span><span>Пожелания попадают в план разработки, обновления — в подписке</span></div>
+<div style="display: flex; gap: 12px"><span style="color: #F2B45E" aria-hidden="true">✓</span><span>Настраиваем, обучаем команду и отвечаем за результат</span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- вопросы -->
+<section style="padding: 88px 24px">
+<div style="max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px">
+<h2 style="font-size: clamp(28px, 3.2vw, 40px); line-height: 1.1">Что директора спрашивают про цену</h2>
+<div style="display: flex; flex-direction: column; border-top: 1px solid #E1E6E4">
+<details open style="border-bottom: 1px solid #E1E6E4"><summary style="padding: 22px 4px; font-family: 'Geologica', sans-serif; font-weight: 600; font-size: 19px; display: flex; justify-content: space-between; gap: 20px"><span>Сколько это стоит на самом деле?</span><span style="color: #1B695B" aria-hidden="true">+</span></summary><p style="padding: 0 40px 24px 4px; font-size: 16.5px; line-height: 1.6; color: #56606E">Две части. Подписка — от 13 000 сом в месяц. Внедрение — единоразово: настройка от 25 000 сом, перенос данных и интеграции от 80 000 сом. Всё утверждается до старта.</p></details>
+<details style="border-bottom: 1px solid #E1E6E4"><summary style="padding: 22px 4px; font-family: 'Geologica', sans-serif; font-weight: 600; font-size: 19px; display: flex; justify-content: space-between; gap: 20px"><span>Наши данные — в Excel и старых программах. Это переносится?</span><span style="color: #1B695B" aria-hidden="true">+</span></summary><p style="padding: 0 40px 24px 4px; font-size: 16.5px; line-height: 1.6; color: #56606E">Да, и это наша работа. Переносим клиентов и историю из Excel, 1С, ERP, баз данных, Bitrix24 и amoCRM — с проверкой дублей. Перед стартом проводим предварительный аудит.</p></details>
+<details style="border-bottom: 1px solid #E1E6E4"><summary style="padding: 22px 4px; font-family: 'Geologica', sans-serif; font-weight: 600; font-size: 19px; display: flex; justify-content: space-between; gap: 20px"><span>Что такое кастомизация и 5 часов в подарок?</span><span style="color: #1B695B" aria-hidden="true">+</span></summary><p style="padding: 0 40px 24px 4px; font-size: 16.5px; line-height: 1.6; color: #56606E">Это настройка Atava под ваш бизнес: поля, статусы, шаблоны договоров, роли, отчёты, чат-боты и интеграции. По акции до 1 декабря 5 часов такой работы входят в годовую оплату.</p></details>
+<details style="border-bottom: 1px solid #E1E6E4"><summary style="padding: 22px 4px; font-family: 'Geologica', sans-serif; font-weight: 600; font-size: 19px; display: flex; justify-content: space-between; gap: 20px"><span>Пробовали Bitrix — забросили. Чем вы отличаетесь?</span><span style="color: #1B695B" aria-hidden="true">+</span></summary><p style="padding: 0 40px 24px 4px; font-size: 16.5px; line-height: 1.6; color: #56606E">С Atava внедрение — часть продукта: переносим данные, подключаем ваши программы и мессенджеры, настраиваем под отрасль и отвечаем за результат.</p></details>
+<details style="border-bottom: 1px solid #E1E6E4"><summary style="padding: 22px 4px; font-family: 'Geologica', sans-serif; font-weight: 600; font-size: 19px; display: flex; justify-content: space-between; gap: 20px"><span>Где хранятся данные и что будет, если мы уйдём?</span><span style="color: #1B695B" aria-hidden="true">+</span></summary><p style="padding: 0 40px 24px 4px; font-size: 16.5px; line-height: 1.6; color: #56606E">В облаке, доступ по ролям, резервные копии ежедневно. Данные принадлежат вам: полная выгрузка в Excel доступна в любой момент.</p></details>
+<details style="border-bottom: 1px solid #E1E6E4"><summary style="padding: 22px 4px; font-family: 'Geologica', sans-serif; font-weight: 600; font-size: 19px; display: flex; justify-content: space-between; gap: 20px"><span>Как Atava работает с 1С?</span><span style="color: #1B695B" aria-hidden="true">+</span></summary><p style="padding: 0 40px 24px 4px; font-size: 16.5px; line-height: 1.6; color: #56606E">Остатки, цены и взаиморасчёты автоматически передаются в Atava, а бухгалтерия продолжает работать в привычной 1С. Так же подключаем ERP и другие базы данных.</p></details>
+</div>
+</div>
+</section>
+
+<!-- демо -->
+<section id="demo" style="padding: 0 24px 96px">
+<div style="max-width: 1200px; margin: 0 auto; background: #0F3A33; color: #FFFFFF; border-radius: 24px; padding: clamp(28px, 5vw, 56px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr)); gap: 32px 56px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<h2 style="font-size: clamp(28px, 3.4vw, 42px); line-height: 1.1; color: #FFFFFF">Посчитаем тариф и внедрение под вашу компанию</h2>
+<p style="font-size: 18px; line-height: 1.55; color: #C9DDD7">30 минут онлайн на живой системе. После разговора — точная смета и зафиксированная скидка −30%.</p>
+</div>
+<form style="background: #FFFFFF; color: #202A36; border-radius: 18px; padding: 28px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="p-name" style="font-size: 14px; font-weight: 800">Имя</label><input id="p-name" type="text" placeholder="Как к вам обращаться" style="font: inherit; font-size: 16px; padding: 14px 16px; border: 2px solid #C9D1CE; border-radius: 10px; background: #F4F6F5; color: #202A36"></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="p-phone" style="font-size: 14px; font-weight: 800">Телефон</label><input id="p-phone" type="tel" placeholder="+996 ___ ___ ___" style="font: inherit; font-size: 16px; padding: 14px 16px; border: 2px solid #C9D1CE; border-radius: 10px; background: #F4F6F5; color: #202A36"></div>
+<button type="button" style="font: inherit; font-weight: 800; font-size: 18px; padding: 18px; border: none; border-radius: 12px; background: #E79532; color: #202A36; cursor: pointer; margin-top: 4px">Записаться на демо</button>
+<div style="font-size: 13.5px; color: #56606E; text-align: center">Перезвоним в течение рабочего часа. Без спама.</div>
+</form>
+</div>
+</section>
+
+<footer style="background: #202A36; color: #C3CAD4">
+<div style="max-width: 1200px; margin: 0 auto; padding: 48px 24px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 40px">
+<img src="/_blob/ed64d54333dc5de67945a137549d14ef" alt="Atava CRM" style="height: 44px; width: auto">
+<div style="display: flex; flex-wrap: wrap; gap: 8px 28px; font-size: 15px; font-weight: 600"><a href="Main.dc.html" style="color: #FFFFFF; text-decoration: none; padding: 10px 0">Главная</a><a href="Cases.dc.html" style="color: #FFFFFF; text-decoration: none; padding: 10px 0">Кейсы</a><a href="mailto:hello@atava.kg" style="color: #FFFFFF; text-decoration: none; padding: 10px 0">hello@atava.kg</a></div>
+<div style="font-size: 13.5px; width: 100%; border-top: 1px solid #3A4656; padding-top: 20px">© 2026 Atava CRM · ОсОО «Центр бизнеса и инноваций»</div>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4900}}'>
+class Component extends DCLogic {
+renderVals() {
+var mode = (this.state && this.state.mode) || 'promo';
+var self = this;
+var prices = {
+month: ['13 000', '20 000', 'от 35 000'],
+year: ['11 700', '18 000', 'от 31 500'],
+promo: ['9 100', '14 000', 'от 24 500']
+};
+var notes = {
+month: ['Оплата каждый месяц', 'Оплата каждый месяц', 'Оплата каждый месяц'],
+year: ['Экономия 15 600 сом за год', 'Экономия 24 000 сом за год', 'Экономия от 42 000 сом за год'],
+promo: ['Экономия 46 800 сом за год + 5 часов кастомизации', 'Экономия 72 000 сом за год + 5 часов кастомизации', 'Экономия от 126 000 сом за год + 5 часов кастомизации']
+};
+var on = function (m) { return mode === m; };
+var bg = function (m) { return on(m) ? '#202A36' : 'transparent'; };
+var fg = function (m) { return on(m) ? '#FFFFFF' : '#56606E'; };
+return {
+p1: prices[mode][0], p2: prices[mode][1], p3: prices[mode][2],
+n1: notes[mode][0], n2: notes[mode][1], n3: notes[mode][2],
+hasOld: mode !== 'month',
+isMonth: on('month') ? 'true' : 'false', isYear: on('year') ? 'true' : 'false', isPromo: on('promo') ? 'true' : 'false',
+monthBg: bg('month'), monthFg: fg('month'),
+yearBg: bg('year'), yearFg: fg('year'),
+promoBg: bg('promo'), promoFg: fg('promo'),
+setMonth: function () { self.setState({ mode: 'month' }); },
+setYear: function () { self.setState({ mode: 'year' }); },
+setPromo: function () { self.setState({ mode: 'promo' }); }
+};
+}
+}
+</script>
+</body>
+</html>
