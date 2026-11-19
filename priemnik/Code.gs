@@ -1,7 +1,7 @@
 /**
- * Atava CRM – приёмник заявок с сайта.
+ * Atava CRM – приемник заявок с сайта.
  * Каждая заявка сначала записывается строкой в таблицу, затем уходит письмом.
- * Если письмо не ушло, строка в таблице всё равно остаётся.
+ * Если письмо не ушло, строка в таблице все равно остается.
  *
  * Настройки – три строки ниже.
  */
@@ -22,9 +22,9 @@ function setup() {
   MailApp.getRemainingDailyQuota();
 }
 
-/** Проверка, что приёмник жив: откройте адрес веб-приложения в браузере. */
+/** Проверка, что приемник жив: откройте адрес веб-приложения в браузере. */
 function doGet() {
-  return ContentService.createTextOutput('Atava: приёмник заявок работает');
+  return ContentService.createTextOutput('Atava: приемник заявок работает');
 }
 
 function doPost(e) {
@@ -101,7 +101,7 @@ function reply_(ajax, ok) {
   // Отправка без JavaScript: показываем простую страницу со ссылкой обратно на сайт
   var msg = ok
     ? '<h1>Спасибо! Заявка принята</h1><p>Перезвоним в течение рабочего часа.</p>'
-    : '<h1>Не удалось отправить</h1><p>Проверьте имя и телефон и попробуйте ещё раз или напишите нам на hello@atava.kg.</p>';
+    : '<h1>Не удалось отправить</h1><p>Проверьте имя и телефон и попробуйте еще раз или напишите нам на hello@atava.kg.</p>';
   return HtmlService.createHtmlOutput('<div style="font:18px Arial,sans-serif;max-width:560px;margin:60px auto;padding:0 16px">' + msg +
     '<p><a href="' + SITE_URL + (ok ? '/spasibo/' : '/') + '" target="_top">Вернуться на сайт Atava</a></p></div>')
     .setTitle('Atava CRM');

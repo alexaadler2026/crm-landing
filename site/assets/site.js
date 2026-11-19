@@ -4,7 +4,7 @@
 
 /* ================= НАСТРОЙКИ – меняются здесь ================= */
 var CONFIG = {
-  // Адрес приёмника заявок (веб-приложение Google Apps Script, см. priemnik/README.md)
+  // Адрес приемника заявок (веб-приложение Google Apps Script, см. priemnik/README.md)
   ENDPOINT: 'https://script.google.com/macros/s/ВСТАВЬТЕ_ID/exec',
   // Номер WhatsApp только цифрами, с кодом страны: '996700000000'. Пусто – кнопка скрыта
   WHATSAPP: '',
@@ -13,7 +13,7 @@ var CONFIG = {
   PHONE: '',
   // Окончание акции (время Бишкека). После этой даты полоса акции и акционные цены скрываются
   PROMO_END: '2027-01-16T00:00:00+06:00',
-  // Идентификаторы счётчиков. Пусто – счётчик не подключается
+  // Идентификаторы счетчиков. Пусто – счетчик не подключается
   GA_ID: '',          // 'G-XXXXXXXXXX'
   YM_ID: '',          // '12345678'
   META_PIXEL_ID: ''   // '1234567890'
@@ -113,7 +113,7 @@ if (tog) {
   $$('#menu a').forEach(function (a) { a.addEventListener('click', closeMenu); });
   d.addEventListener('keydown', function (e) { if (e.key === 'Escape' && nav.classList.contains('is-open')) { closeMenu(); tog.focus(); } });
 }
-/* кнопка «наверх»: создаётся скриптом, видна после второго экрана */
+/* кнопка «наверх»: создается скриптом, видна после второго экрана */
 var toTop = d.createElement('button');
 toTop.type = 'button';
 toTop.className = 'to-top';
@@ -142,7 +142,7 @@ var reveals = $$('.reveal');
 if (reduce) reveals.forEach(function (e) { e.classList.add('is-in'); });
 else onView(reveals, function (e) { e.classList.add('is-in'); }, { rootMargin: '0px 0px -6% 0px', threshold: 0.08 });
 
-/* ---------- счётчики и пары «было → стало» ---------- */
+/* ---------- счетчики и пары «было → стало» ---------- */
 function countUp(el) {
   var end = +el.dataset.end, t0 = 0;
   function step(t) {
@@ -198,7 +198,7 @@ if (chat && !reduce && chat.animate) {
   }, { threshold: 0.5 });
 }
 
-/* ---------- блок отчётов ---------- */
+/* ---------- блок отчетов ---------- */
 function growBars(panel) {
   if (reduce || !panel) return;
   $$('.fbar__fill', panel).forEach(function (b, i) {
@@ -345,7 +345,7 @@ if (stage && list && !reduce && stage.animate) {
   else {
     ssSet('atava_hero', '1');
     $('#inbox').style.opacity = '0';
-    // ждём шрифты (не дольше 600 мс), чтобы карточки не меняли размер посреди сцены
+    // ждем шрифты (не дольше 600 мс), чтобы карточки не меняли размер посреди сцены
     var go = false, run = function () { if (go) return; go = true; (mobile ? sceneMobile : sceneDesktop)(); };
     if (d.fonts && d.fonts.ready) d.fonts.ready.then(function () { requestAnimationFrame(run); });
     later(run, 600);
@@ -379,7 +379,7 @@ function sceneDesktop() {
   var web = $('#msg-web').content.firstElementChild;
   var srcs = rows.concat([web]);
   var cw = rows[0].getBoundingClientRect().width;
-  // хаос: смещение x, доля высоты y, поворот, направление влёта круга, изгиб траектории
+  // хаос: смещение x, доля высоты y, поворот, направление влета круга, изгиб траектории
   var chaos = [[-46, 0.03, -7, [-1.1, -0.5], 90], [52, 0.25, 5, [1.2, -0.7], -110], [-30, 0.5, 4, [-1.2, 0.7], 100], [38, 0.68, -5, [1.1, 0.9], -90]];
   var cards = srcs.map(function (src, i) {
     var c = src.cloneNode(true), k = chaos[i];
@@ -419,7 +419,7 @@ function sceneDesktop() {
     { transform: tr(nc.x, nc.y - 10, 1.05, nc.r), offset: 0.3 },
     { transform: tr(centerX, centerY, 1.04) }
   ], { duration: 400, delay: 1380, easing: INOUT, fill: 'forwards' });
-  // 1,78 с: «попадание» – волна, окно раскрывается с пружиной, карточка растворяется в нём
+  // 1,78 с: «попадание» – волна, окно раскрывается с пружиной, карточка растворяется в нем
   var ring = d.createElement('span'); ring.className = 'scene__ring'; layer.appendChild(ring);
   var rc = tr(SW / 2, SH / 2);
   anim(ring, [{ transform: rc + ' scale(.3)', opacity: 0.9 }, { transform: rc + ' scale(3.4)', opacity: 0 }], { duration: 700, delay: 1780, easing: OUT, fill: 'forwards' });
@@ -434,7 +434,7 @@ function sceneDesktop() {
     anim(c.sh, [{ opacity: 1 }, { opacity: 0 }], { duration: 640, delay: 1800 + i * 80, easing: OUT, fill: 'forwards' });
     a.onfinish = function () { c.src.style.opacity = ''; c.el.remove(); };
   });
-  // 2,4–3 с: «без ответа» → ответственный, в шапке появляется счётчик
+  // 2,4–3 с: «без ответа» → ответственный, в шапке появляется счетчик
   alertRows.forEach(function (r, i) {
     at(2420 + i * 200, function () { swapTag($('.tag', r), r.dataset.assign, 'tag'); });
   });
@@ -453,7 +453,7 @@ function swapTag(t, text, cls) {
   };
 }
 
-/* окно живёт: новый диалог раз в 8–10 секунд; пауза, если вкладка скрыта или блок вне экрана */
+/* окно живет: новый диалог раз в 8–10 секунд; пауза, если вкладка скрыта или блок вне экрана */
 function startLoop() {
   var rows = $$('.msg', list), GAP = 10;
   var pool = [$('#msg-web').content.firstElementChild.cloneNode(true)];
@@ -478,14 +478,14 @@ function startLoop() {
     if (!inView || d.hidden) { schedule(); return; }
     var inc = pool.shift(), out = rows.pop();
     var tag = $('.tag', inc), sec = 1;
-    tag.className = 'tag tag--wait'; tag.textContent = 'ждёт 1 с';
+    tag.className = 'tag tag--wait'; tag.textContent = 'ждет 1 с';
     list.insertBefore(inc, list.firstChild); rows.unshift(inc);
     var oa = anim(out, [{ transform: 'translate3d(0,' + out._y + 'px,0)', opacity: 1 }, { transform: 'translate3d(0,' + (out._y + 30) + 'px,0) scale(.97)', opacity: 0 }], { duration: 500, easing: OUT, fill: 'forwards' });
     oa.onfinish = function () { oa.cancel(); out.remove(); pool.push(out); };
     layout(true, inc);
     var tick = setInterval(function () {
       sec++;
-      if (sec <= 4) { tag.textContent = 'ждёт ' + sec + ' с'; return; }
+      if (sec <= 4) { tag.textContent = 'ждет ' + sec + ' с'; return; }
       clearInterval(tick);
       swapTag(tag, inc.dataset.assign, 'tag');
     }, 1000);
