@@ -285,9 +285,9 @@ html:not(.js) .panel+.panel{border-top:1px dashed var(--line);padding-top:18px}
 .dark-card p,.outline-card p{font-size:15.5px;line-height:1.55;color:var(--on-dark)}
 .outline-card{border:1px solid var(--dark-line);border-radius:18px;padding:30px;display:flex;flex-direction:column;gap:10px}
 .outline-card h3{font-size:20px}
-.price-cta{background:#1ff5e9;color:var(--ink);border-radius:18px;padding:30px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px}
+.price-cta{background:#bcf363;color:var(--ink);border-radius:18px;padding:30px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px}
 .price-cta__big{font-family:var(--font-head);font-weight:600;font-size:34px;letter-spacing:-.02em}
-.price-cta__num{color:#ed6c40}
+.price-cta__num{color:#ed6c40;font-weight:700}
 .price-cta .small{font-size:14px;font-weight:800}
 .price-cta .note{font-size:14px;font-weight:600}
 .big-intro{font-size:clamp(32px,4vw,52px);line-height:1.08}
