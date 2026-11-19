@@ -445,6 +445,8 @@ html:not(.js) .period{display:none}
 .field input[aria-invalid="true"]{border-color:var(--red)}
 .field .err{font-size:13.5px;font-weight:700;color:var(--red);min-height:0}
 .field .err:empty{display:none}
+.field__opt{font-weight:600;color:var(--muted)}
+.field__hint{font-size:13px;color:var(--muted)}
 .hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
 .form .btn{font-size:18px;padding:18px;margin-top:6px;width:100%}
 .form .btn[disabled]{opacity:.7;cursor:progress;transform:none}
@@ -476,6 +478,13 @@ html:not(.js) .period{display:none}
 .wa-float{position:fixed;right:16px;bottom:16px;z-index:60;width:56px;height:56px;border-radius:50%;background:#1F8F55;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 28px -10px rgba(0,0,0,.5);transition:transform .45s var(--ease),opacity .45s var(--ease)}
 .wa-float:hover{color:#fff;transform:translateY(-2px)}
 .wa-float.is-hidden{opacity:0;transform:translateY(20px);pointer-events:none}
+/* кнопка «наверх» – появляется после второго экрана */
+.to-top{position:fixed;right:16px;bottom:16px;z-index:59;width:52px;height:52px;border-radius:50%;border:0;padding:0;cursor:pointer;background:linear-gradient(to bottom,#f2825b 0%,#e55b2b 50%,#f07146 100%);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 28px -10px rgba(229,91,43,.75);opacity:0;transform:translateY(20px) scale(.9);pointer-events:none;transition:transform .45s var(--ease-spring),opacity .35s var(--ease),bottom .45s var(--ease)}
+.to-top.is-on{opacity:1;transform:none;pointer-events:auto}
+.to-top.is-on:hover{transform:translateY(-3px)}
+.to-top svg{transition:transform .35s var(--ease)}
+.to-top:hover svg{transform:translateY(-2px)}
+.wa-float:not([hidden]):not(.is-hidden) ~ .to-top{bottom:84px}
 
 /* ---------- служебные страницы ---------- */
 .simple{padding:72px 0 96px;min-height:50vh}
@@ -495,5 +504,5 @@ html:not(.js) .period{display:none}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .js .reveal{opacity:1;transform:none}
-  .btn:hover,.q:hover,.ind:hover,.plan:hover{transform:none}
+  .btn:hover,.q:hover,.ind:hover,.plan:hover,.to-top.is-on:hover,.to-top:hover svg{transform:none}
 }

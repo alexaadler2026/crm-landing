@@ -9,7 +9,7 @@ var EMAIL_TO   = '[EMAIL ДЛЯ ЗАЯВОК]';   // куда присылать
 var SITE_URL   = 'https://[ДОМЕН]';      // адрес сайта без слеша в конце
 var SHEET_NAME = 'Заявки';               // имя листа в таблице
 
-var HEADERS = ['Дата и время', 'Имя', 'Телефон', 'Отрасль', 'Тариф', 'Страница',
+var HEADERS = ['Дата и время', 'Имя', 'Телефон', 'Удобное время', 'Отрасль', 'Тариф', 'Страница',
   'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term',
   'Источник перехода', 'Статус'];
 
@@ -39,6 +39,7 @@ function doPost(e) {
   var lead = {
     name: clean_(p.name, 100),
     phone: normPhone_(p.phone || ''),
+    call_time: clean_(p.call_time, 120),
     industry: clean_(p.industry, 80),
     plan: clean_(p.plan, 40),
     page: clean_(p.page, 300),
@@ -56,7 +57,7 @@ function doPost(e) {
   var lock = LockService.getScriptLock();
   try {
     lock.waitLock(15000);
-    getSheet_().appendRow([lead.time, lead.name, lead.phone, lead.industry, lead.plan, lead.page,
+    getSheet_().appendRow([lead.time, lead.name, lead.phone, lead.call_time, lead.industry, lead.plan, lead.page,
       lead.utm_source, lead.utm_medium, lead.utm_campaign, lead.utm_content, lead.utm_term,
       lead.referrer, ''].map(safeCell_));
   } catch (err) {
@@ -80,7 +81,7 @@ function sendMail_(l) {
     ['Дата и время', l.time + ' (Бишкек)'],
     ['Имя', l.name],
     ['Телефон', '<a href="tel:+' + digits + '">' + esc_(l.phone) + '</a> · <a href="https://wa.me/' + digits + '">написать в WhatsApp</a>'],
-    ['Отрасль', l.industry], ['Тариф', l.plan], ['Страница', l.page],
+    ['Удобное время', l.call_time], ['Отрасль', l.industry], ['Тариф', l.plan], ['Страница', l.page],
     ['utm_source', l.utm_source], ['utm_medium', l.utm_medium], ['utm_campaign', l.utm_campaign],
     ['utm_content', l.utm_content], ['utm_term', l.utm_term], ['Источник перехода', l.referrer]
   ];

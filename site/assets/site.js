@@ -113,10 +113,26 @@ if (tog) {
   $$('#menu a').forEach(function (a) { a.addEventListener('click', closeMenu); });
   d.addEventListener('keydown', function (e) { if (e.key === 'Escape' && nav.classList.contains('is-open')) { closeMenu(); tog.focus(); } });
 }
+/* кнопка «наверх»: создаётся скриптом, видна после второго экрана */
+var toTop = d.createElement('button');
+toTop.type = 'button';
+toTop.className = 'to-top';
+toTop.setAttribute('aria-label', 'Наверх');
+toTop.tabIndex = -1;
+toTop.setAttribute('aria-hidden', 'true');
+toTop.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5.5 11.5L12 5l6.5 6.5"/></svg>';
+d.body.appendChild(toTop);
+toTop.addEventListener('click', function () {
+  W.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+  var logo = $('.nav__logo'); if (logo) logo.focus({ preventScroll: true });
+});
+
 var header = $('.site-header'), ticking = false;
 function onScroll() {
   ticking = false;
   if (header) header.classList.toggle('is-compact', W.scrollY > 80);
+  var on = W.scrollY > W.innerHeight * 2;
+  if (on !== toTop.classList.contains('is-on')) { toTop.classList.toggle('is-on', on); toTop.tabIndex = on ? 0 : -1; toTop.setAttribute('aria-hidden', on ? 'false' : 'true'); }
 }
 W.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
 onScroll();
@@ -291,6 +307,7 @@ $$('form[data-lead]').forEach(function (f) {
     data.set('phone', normPhone(phone.value));
     data.set('industry', f.elements.industry ? f.elements.industry.value : '');
     data.set('plan', f.elements.plan.value);
+    data.set('call_time', f.elements.call_time ? f.elements.call_time.value.trim() : '');
     data.set('page', location.origin + location.pathname);
     ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (k) { data.set(k, src[k] || ''); });
     data.set('referrer', src.ref || '');
