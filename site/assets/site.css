@@ -185,6 +185,8 @@ input:focus-visible,select:focus-visible,a:focus-visible,button:focus-visible,su
 .trust__nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(130px,100%),1fr));gap:20px}
 .trust__v{font-family:var(--font-head);font-weight:600;font-size:28px;color:var(--green-700)}
 .trust__t{font-size:14px;font-weight:600;color:var(--muted)}
+.trust__link{align-self:flex-start;font-size:15px;padding:4px 0;color:var(--green-700)}
+.trust__link:hover{color:var(--ink)}
 
 /* ---------- коротко об Atava ---------- */
 .about{padding:56px 0 0}
