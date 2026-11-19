@@ -1,5 +1,5 @@
 /* =========================================================
-   Atava CRM — общие стили сайта
+   Atava CRM – общие стили сайта
    Цвета и шрифты меняются в блоке :root
    ========================================================= */
 
@@ -10,7 +10,7 @@
 
 :root{
   --green-900:#0F3A33; --green-700:#1B695B; --green-ink:#14564A;
-  --orange:#E79532; --orange-soft:#F2B45E;
+  --orange:#E79532; --orange-soft:#9cf708;
   --ink:#202A36; --bg:#F4F6F5; --white:#FFFFFF; --line:#E1E6E4;
   --muted:#56606E; --mint:#E3F0EC; --mint-2:#D6EAE3; --on-green:#C9DDD7;
   --on-dark:#C3CAD4; --dark-2:#2A3543; --dark-line:#3A4656; --grey-2:#B4BCC6;
@@ -66,8 +66,9 @@ input:focus-visible,select:focus-visible,a:focus-visible,button:focus-visible,su
 /* ---------- кнопки ---------- */
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;text-decoration:none;font-weight:800;font-size:15.5px;padding:14px 22px;border-radius:12px;border:2px solid transparent;cursor:pointer;text-align:center;transition:transform var(--t) var(--ease),box-shadow var(--t) var(--ease),background-color var(--t) var(--ease),color var(--t) var(--ease)}
 .btn:hover{transform:translateY(-2px)}
-.btn--primary{background:var(--orange);color:var(--ink)}
-.btn--primary:hover{color:var(--ink);box-shadow:0 10px 22px -10px rgba(231,149,50,.8)}
+.btn--primary{background:linear-gradient(to bottom,#f2825b 0%,#e55b2b 50%,#f07146 100%);color:#fff}
+.site-header a.btn--primary{color:#fff}
+.btn--primary:hover,.site-header a.btn--primary:hover{color:#fff;box-shadow:0 10px 22px -10px rgba(229,91,43,.8)}
 .btn--dark{background:var(--ink);color:#fff}
 .btn--dark:hover{color:#fff}
 .btn--outline{background:#fff;color:var(--ink);border-color:var(--ink)}
@@ -136,6 +137,7 @@ input:focus-visible,select:focus-visible,a:focus-visible,button:focus-visible,su
 .ticks span{display:flex;align-items:center;gap:8px}
 .ticks svg{flex:none}
 .hero__stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:24px 40px;margin-top:64px;padding:36px 0 52px;border-top:1px solid rgba(255,255,255,.18)}
+.stat__value.stat__value--word{font-size:clamp(28px,3vw,36px)}
 .stat__value{font-family:var(--font-head);font-weight:600;font-size:44px;letter-spacing:-.02em;color:var(--orange-soft);line-height:1.2}
 .stat__text{font-size:16px;line-height:1.45;color:var(--on-green);margin-top:6px}
 
@@ -188,6 +190,7 @@ input:focus-visible,select:focus-visible,a:focus-visible,button:focus-visible,su
 .about__box{border-left:4px solid var(--orange);padding:4px 0 4px 24px;max-width:860px}
 .about__box h2{font-size:22px;line-height:1.25;margin-bottom:10px}
 .about__box p{font-size:17.5px;line-height:1.6;color:var(--ink)}
+.about__box p+p{margin-top:12px}
 
 /* ---------- карточки ---------- */
 .card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:32px;display:flex;flex-direction:column;gap:16px}
@@ -282,8 +285,9 @@ html:not(.js) .panel+.panel{border-top:1px dashed var(--line);padding-top:18px}
 .dark-card p,.outline-card p{font-size:15.5px;line-height:1.55;color:var(--on-dark)}
 .outline-card{border:1px solid var(--dark-line);border-radius:18px;padding:30px;display:flex;flex-direction:column;gap:10px}
 .outline-card h3{font-size:20px}
-.price-cta{background:var(--orange);color:var(--ink);border-radius:18px;padding:30px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px}
+.price-cta{background:#1ff5e9;color:var(--ink);border-radius:18px;padding:30px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px}
 .price-cta__big{font-family:var(--font-head);font-weight:600;font-size:34px;letter-spacing:-.02em}
+.price-cta__num{color:#ed6c40}
 .price-cta .small{font-size:14px;font-weight:800}
 .price-cta .note{font-size:14px;font-weight:600}
 .big-intro{font-size:clamp(32px,4vw,52px);line-height:1.08}
@@ -334,6 +338,7 @@ html:not(.js) .panel+.panel{border-top:1px dashed var(--line);padding-top:18px}
 .plan__size{font-size:14.5px;font-weight:600;color:var(--muted)}
 .plan--hi .plan__size{color:var(--on-green)}
 .badge{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;background:var(--orange);color:var(--ink);padding:5px 10px;border-radius:6px}
+.plan--hi .badge{color:#fff}
 .price{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px}
 .price__old{font-size:17px;font-weight:700;color:var(--muted);text-decoration:line-through;text-decoration-color:var(--red)}
 .plan--hi .price__old{color:var(--on-green);text-decoration-color:var(--orange-soft)}
